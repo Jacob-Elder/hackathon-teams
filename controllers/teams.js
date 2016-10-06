@@ -25,4 +25,25 @@ router.get('/:name', function(req, res) {
   res.render('teams/show', { team: team });
 });
 
+//get the edit form
+router.get("/edit/:name", function(req, res){
+	var name = req.params.name;
+	var team = teamService.getTeam(name);
+
+	res.render("teams/edit", {team: team });
+});
+
+router.put('/team/:name', function(req, res) {
+ 	var name = req.params.name;
+ 	var teamData = req.body;
+ 	teamService.editTeam(name, teamData)
+ 	res.send({message: "Changes have been made"});
+ });
+
+router.delete("/delete/:name", function(req, res){
+	var name = req.params.name;
+	teamService.deleteTeam(name);
+	res.send({message: "success"});
+})
+
 module.exports = router;

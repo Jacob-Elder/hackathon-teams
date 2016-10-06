@@ -1,0 +1,11 @@
+<form action="../team/<%= team.name %>" class="put-form">
+	<div>
+		<Label for="name">Team Name:</Label>
+		<input type="text" name="name" value="<%= team.name %>">
+	</div>
+	<div>
+		<Label for="members">Members:</Label>
+		<input type="text" name="members" value="<%= team.members %>">
+	</div>
+	<input type="submit" value="Edit">
+</form>
